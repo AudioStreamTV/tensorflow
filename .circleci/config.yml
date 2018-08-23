@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build-and-test:
+    macos:
+      xcode: "9.0"
+    environment:
+      FL_OUTPUT_DIR: output
+      FASTLANE_LANE: test
+    shell: /bin/bash --login -o pipefail
+    steps:
+      - checkout
+      - run: tensorflow/contrib/makefile/build_all_ios.sh -a arm64
+workflows:
+  version: 2
+  build-test-adhoc:
+    jobs:
+      - build-and-test
