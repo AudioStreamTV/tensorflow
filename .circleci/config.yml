@@ -10,6 +10,7 @@ jobs:
     steps:
       - checkout
       - run: bash install_deps.sh
+      - run: brew install python3
       - run: brew tap bazelbuild/tap
       - run: brew tap-pin bazelbuild/tap
       - run: brew install bazel
