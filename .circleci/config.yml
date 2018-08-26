@@ -12,6 +12,7 @@ jobs:
       - run: brew tap bazelbuild/tap
       - run: brew tap-pin bazelbuild/tap
       - run: brew install bazel
+      - run: pip3 install numpy
       - run: brew install libtool
       - run: mkdir -p ~/graphs
       - run: gsutil -m cp gs://tunity-packages/nets/retinanet/mobilenet/deep_tv_detector.pb ~/graphs
