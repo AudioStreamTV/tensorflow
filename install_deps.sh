@@ -1,0 +1,9 @@
+#!/bin/bash
+
+
+echo $GCP_NET_PULL | base64 --decode > ${HOME}/gcp-net-pull-key.json
+
+curl https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-213.0.0-darwin-x86_64.tar.gz -o ${HOME}/gcloud.tar.gz
+cd ${HOME}
+tar zxvf gcloud.tar.gz
+${HOME}/google-cloud-sdk/bin/gcloud auth activate-service-account --key-file ${HOME}/gcp-net-pull-key.json

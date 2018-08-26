@@ -9,13 +9,14 @@ jobs:
     shell: /bin/bash --login -o pipefail
     steps:
       - checkout
+      - run: bash install_deps.sh
       - run: brew tap bazelbuild/tap
       - run: brew tap-pin bazelbuild/tap
       - run: brew install bazel
       - run: pip3 install numpy
       - run: brew install libtool
       - run: mkdir -p ~/graphs
-      - run: gsutil -m cp gs://tunity-packages/nets/retinanet/mobilenet/deep_tv_detector.pb ~/graphs
+      - run: ${HOME}/google-cloud-sdk/bin/gsutil -m cp gs://tunity-packages/nets/retinanet/mobilenet/deep_tv_detector.pb ~/graphs
       - run: git checkout remotes/origin/r1.9
       - run: tensorflow/contrib/makefile/build_all_ios.sh -a arm64
       - run: bazel build --copt="-DUSE_GEMM_FOR_CONV" tensorflow/python/tools/print_selective_registration_header
