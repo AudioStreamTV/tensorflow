@@ -14,3 +14,7 @@ sudo installer -pkg ${HOME}/python-3.6.5-macosx10.9.pkg -target /
 
 sudo pip3 install numpy
 sudo pip install numpy
+
+sudo pip3 install enum34
+sudo pip install enum34
+sudo pip install enum
