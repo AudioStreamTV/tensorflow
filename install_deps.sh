@@ -13,3 +13,4 @@ wget https://www.python.org/ftp/python/3.6.5/python-3.6.5-macosx10.9.pkg
 sudo installer -pkg ${HOME}/python-3.6.5-macosx10.9.pkg -target /
 
 sudo pip3 install numpy
+sudo pip install numpy
